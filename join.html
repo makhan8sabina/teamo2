@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Pitch — Join Us</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header id="main-header">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <span>TEAMO</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="join.html" class="active">Join Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <img class="hero-photo" src="images/jude.jpg" alt="Close-up of a boot striking a football">
+      <div class="hero-content">
+        <h1>Join Us</h1>
+        <p>Bring a team, join as a solo player, or help us run the next event.</p>
+      </div>
+    </section>
+
+        <section class="tint">
+      <div class="container">
+        <h2>How it works</h2>
+        <ol class="feature-list">
+          <li>Fill in the form below with your team or player details</li>
+          <li>We match you to an open league, division, or event</li>
+          <li>You get a confirmation email with dates, venue, and fees</li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Before you write to us</h2>
+        <ul class="feature-list">
+          <li>Applications are reviewed every Monday</li>
+          <li>Teams of any size can register — we'll help you find the right division</li>
+          <li>No full squad? Join our pick-up games as a solo player</li>
+          <li>Replies usually take two to three working days</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="tint">
+      <div class="container">
+        <h2>Send us a message</h2>
+        <form id="contact-form" action="#" method="post">
+          <div class="field">
+            <label for="full-name">Full name</label>
+            <input type="text" id="full-name" name="full-name" placeholder="Your full name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="field">
+            <label for="reason">What are you here for?</label>
+            <select id="reason" name="reason">
+              <option value="team">Register a team</option>
+              <option value="solo">Join as a solo player</option>
+              <option value="sponsor">Sponsor an event</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <span>Preferred format</span>
+            <div class="option-row">
+              <label><input type="radio" name="format" value="5-a-side" checked> 5-a-side</label>
+              <label><input type="radio" name="format" value="7-a-side"> 7-a-side</label>
+              <label><input type="radio" name="format" value="11-a-side"> 11-a-side</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us a bit about your team or yourself..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn primary">Send message</button>
+        </form>
+
+            <section>
+              <div class="container">
+              <h2>About the team members</h2>
+              <p>This site was designed and built by two students </p>
+              <div class="card bio-block">
+                <img class="profile-img" src="images/hero-about.jpg" alt="Photo of Student One">
+              <div>
+                <h3>Bekmukhammed Akhatbek</h3>
+                <p>Built the Home and About pages: layout, styling, and the facts table.</p>
+              </div>
+              </div>
+              <div class="card bio-block">
+                <img class="profile-img" src="images/hero-join.jpg" alt="Photo of Student Two">
+              <div>
+                <h3>Sabina Makhan</h3>
+                <p>Built the Events and Join Us pages: the schedule, the sign-up form</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <footer id="site-footer">
+    <div class="container">
+      <div>
+        <h3>TEAMO</h3>
+        <p>This page was built by Sabina</p>
+  </footer>
+</body>
+</html>

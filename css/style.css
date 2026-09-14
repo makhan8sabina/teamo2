@@ -1,0 +1,290 @@
+/* =========================================================
+   Football club site — simple version
+   Palette (soft light blue):
+     --sky-50  : #EAF6FC  (page background)
+     --sky-100 : #D6EDF9  (section fill, cards)
+     --sky-300 : #9FD3EC  (borders, dividers)
+     --sky-500 : #4FA8D8  (buttons, links, accent)
+     --sky-700 : #2E7CAE  (dark accent text)
+     --ink     : #1B2A38  (main text)
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --sky-50: #EAF6FC;
+  --sky-100: #D6EDF9;
+  --sky-300: #9FD3EC;
+  --sky-500: #4FA8D8;
+  --sky-700: #2E7CAE;
+  --ink: #1B2A38;
+  --white: #FFFFFF;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.65;
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+h1 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 1rem; }
+h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+
+p { max-width: 65ch; font-weight: 400; }
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--sky-700); text-decoration: none; }
+a:hover { color: var(--sky-500); }
+
+ul, ol { padding-left: 1.2rem; }
+
+.container { width: min(1100px, 92%); margin-inline: auto; }
+
+/* ---------- Header & nav ---------- */
+#main-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--sky-100);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+#main-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.8rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brand { display: flex; align-items: center; gap: 0.7rem; }
+.brand span {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--sky-700);
+  letter-spacing: 0.3px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 0.3rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.nav-menu a {
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.nav-menu a:hover { background: var(--sky-100); color: var(--sky-700); }
+.nav-menu a.active { background: var(--sky-500); color: var(--white); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 2px solid var(--sky-500);
+  cursor: pointer;
+}
+
+.btn.primary { background: var(--sky-500); color: var(--white); }
+.btn.primary:hover { background: var(--sky-700); border-color: var(--sky-700); color: var(--white); }
+
+.btn.outline { background: transparent; color: var(--white); border-color: var(--white); }
+.btn.outline:hover { background: var(--white); color: var(--sky-700); }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; color: var(--white); }
+
+.hero img.hero-photo {
+  width: 100%;
+  height: min(55vh, 440px);
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.hero-content h1 { color: var(--white); }
+.hero-content p { color: rgba(255,255,255,0.9); margin-top: 0.6rem; }
+.hero-content .btn { margin-top: 1.4rem; }
+
+/* ---------- Sections ---------- */
+section { padding-block: clamp(2.4rem, 5vw, 3.6rem); }
+section.tint { background: var(--sky-50); }
+
+/* ---------- Cards & grid ---------- */
+.grid { display: grid; gap: 1.3rem; }
+.grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+@media (max-width: 700px) {
+  .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--sky-100);
+  border-left: 4px solid var(--sky-500);
+  border-radius: 12px;
+  padding: 1.3rem 1.4rem;
+}
+
+/* ---------- Lists ---------- */
+ul.feature-list { list-style: none; padding-left: 0; }
+
+ul.feature-list li {
+  padding: 0.6rem 0 0.6rem 1.6rem;
+  border-bottom: 1px solid var(--sky-100);
+  position: relative;
+}
+
+ul.feature-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 1.05rem;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--sky-500);
+}
+
+/* ---------- Profile / bio photos ---------- */
+.profile-img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--sky-500);
+}
+
+.bio-block { display: flex; gap: 1.1rem; align-items: flex-start; flex-wrap: wrap; }
+
+/* ---------- Table ---------- */
+.table-wrap { overflow-x: auto; border: 1px solid var(--sky-100); border-radius: 10px; }
+
+table { width: 100%; border-collapse: collapse; min-width: 520px; background: var(--white); }
+
+table caption {
+  text-align: left;
+  font-weight: 700;
+  padding: 0.8rem 1rem 0.4rem;
+  color: var(--sky-700);
+}
+
+th, td { text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--sky-100); }
+
+thead th {
+  background: var(--sky-500);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+table tr:nth-child(even) td { background: var(--sky-50); }
+
+/* ---------- Form ---------- */
+#contact-form {
+  background: var(--sky-50);
+  border: 1px solid var(--sky-100);
+  padding: clamp(1.4rem, 4vw, 2.2rem);
+  border-radius: 16px;
+  display: grid;
+  gap: 1.1rem;
+}
+
+#contact-form .field { display: grid; gap: 0.4rem; }
+
+#contact-form label { font-weight: 600; font-size: 0.9rem; color: var(--sky-700); }
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form select,
+#contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--sky-300);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink);
+  font-family: 'Montserrat', sans-serif;
+}
+
+#contact-form textarea { min-height: 120px; resize: vertical; }
+
+#contact-form input:focus,
+#contact-form select:focus,
+#contact-form textarea:focus {
+  outline: none;
+  border-color: var(--sky-500);
+}
+
+#contact-form .option-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+#contact-form .option-row label { display: flex; align-items: center; gap: 0.4rem; font-weight: 500; }
+
+/* ---------- Event rows ---------- */
+.event-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.1rem 1.3rem;
+  background: var(--white);
+  border: 1px solid var(--sky-100);
+  border-radius: 12px;
+  margin-bottom: 0.9rem;
+}
+
+.event-row .title { font-weight: 700; }
+.event-row .meta { font-size: 0.88rem; color: #5C7385; }
+
+/* ---------- Footer ---------- */
+#site-footer {
+  background: var(--sky-700);
+  color: var(--white);
+  padding-block: 2rem;
+}
+
+#site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.4rem;
+}
+
+#site-footer h3 { color: var(--white); font-size: 1rem; }
+#site-footer p { font-size: 0.85rem; opacity: 0.85; margin-top: 0.3rem; }
+#site-footer .credit-comment { font-size: 0.72rem; opacity: 0.6; margin-top: 0.7rem; }
+
+#site-footer .nav-menu { list-style: none; display: flex; gap: 0.8rem; flex-wrap: wrap; }
+#site-footer .nav-menu a { color: var(--white); font-weight: 500; padding: 0; }
+#site-footer .nav-menu a:hover { color: var(--sky-100); background: none; }
