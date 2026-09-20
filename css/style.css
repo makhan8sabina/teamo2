@@ -1,445 +1,121 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-  --sky-50: #EAF6FC;
-  --sky-100: #D6EDF9;
-  --sky-300: #9FD3EC;
-  --sky-500: #4FA8D8;
-  --sky-700: #2E7CAE;
-  --ink: #1B2A38;
-  --white: #FFFFFF;
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  color: var(--ink);
-  background: var(--white);
-  line-height: 1.65;
-}
-
-h1, h2, h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  color: var(--ink);
-}
-
-h1 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); }
-h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 1rem; }
-h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
-
-p { max-width: 65ch; font-weight: 400; }
-
-img { max-width: 100%; display: block; }
-
-a { color: var(--sky-700); text-decoration: none; }
-a:hover { color: var(--sky-500); }
-
-ul, ol { padding-left: 1.2rem; }
-
-.container { width: min(1100px, 92%); margin-inline: auto; }
-
-#main-header {
-  background: var(--white);
-  border-bottom: 1px solid var(--sky-100);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-#main-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-block: 0.8rem;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.brand { display: flex; align-items: center; gap: 0.7rem; }
-.brand span {
-  font-weight: 800;
-  font-size: 1.25rem;
-  color: var(--sky-700);
-  letter-spacing: 0.3px;
-}
-
-.nav-menu {
-  display: flex;
-  gap: 0.3rem;
-  list-style: none;
-  flex-wrap: wrap;
-}
-
-.nav-menu a {
-  display: inline-block;
-  padding: 0.55rem 1rem;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--ink);
-}
-
-.nav-menu a:hover { background: var(--sky-100); color: var(--sky-700); }
-.nav-menu a.active { background: var(--sky-500); color: var(--white); }
-
-
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.8rem;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  border: 2px solid var(--sky-500);
-  cursor: pointer;
-}
-
-.btn.primary { background: var(--sky-500); color: var(--white); }
-.btn.primary:hover { background: var(--sky-700); border-color: var(--sky-700); color: var(--white); }
-
-.btn.outline { background: transparent; color: var(--white); border-color: var(--white); }
-.btn.outline:hover { background: var(--white); color: var(--sky-700); }
-
-
-.hero { position: relative; color: var(--white); }
-
-.hero img.hero-photo {
-  width: 100%;
-  height: min(55vh, 440px);
-  object-fit: cover;
-  filter: brightness(0.6);
-}
-
-.hero-content {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1.5rem;
-}
-
-.hero-content h1 { color: var(--white); }
-.hero-content p { color: rgba(255,255,255,0.9); margin-top: 0.6rem; }
-.hero-content .btn { margin-top: 1.4rem; }
-
-
-section { padding-block: clamp(2.4rem, 5vw, 3.6rem); }
-section.tint { background: var(--sky-50); }
-
-
-.grid { display: grid; gap: 1.3rem; }
-.grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-.grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
-
-@media (max-width: 700px) {
-  .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; }
-}
-
-.card {
-  background: var(--white);
-  border: 1px solid var(--sky-100);
-  border-left: 4px solid var(--sky-500);
-  border-radius: 12px;
-  padding: 1.3rem 1.4rem;
-}
-
-ul.feature-list { list-style: none; padding-left: 0; }
-
-ul.feature-list li {
-  padding: 0.6rem 0 0.6rem 1.6rem;
-  border-bottom: 1px solid var(--sky-100);
-  position: relative;
-}
-
-ul.feature-list li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 1.05rem;
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--sky-500);
-}
-
-.profile-img {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--sky-500);
-}
-
-.bio-block { display: flex; gap: 1.1rem; align-items: flex-start; flex-wrap: wrap; }
-
-.table-wrap { overflow-x: auto; border: 1px solid var(--sky-100); border-radius: 10px; }
-
-table { width: 100%; border-collapse: collapse; min-width: 520px; background: var(--white); }
-
-table caption {
-  text-align: left;
-  font-weight: 700;
-  padding: 0.8rem 1rem 0.4rem;
-  color: var(--sky-700);
-}
-
-th, td { text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--sky-100); }
-
-thead th {
-  background: var(--sky-500);
-  color: var(--white);
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-table tr:nth-child(even) td { background: var(--sky-50); }
-
-
-#contact-form {
-  background: var(--sky-50);
-  border: 1px solid var(--sky-100);
-  padding: clamp(1.4rem, 4vw, 2.2rem);
-  border-radius: 16px;
-  display: grid;
-  gap: 1.1rem;
-}
-
-#contact-form .field { display: grid; gap: 0.4rem; }
-
-#contact-form label { font-weight: 600; font-size: 0.9rem; color: var(--sky-700); }
-
-#contact-form input[type="text"],
-#contact-form input[type="email"],
-#contact-form select,
-#contact-form textarea {
-  width: 100%;
-  padding: 0.75rem 0.9rem;
-  border: 1px solid var(--sky-300);
-  border-radius: 8px;
-  background: var(--white);
-  color: var(--ink);
-  font-family: 'Montserrat', sans-serif;
-}
-
-#contact-form textarea { min-height: 120px; resize: vertical; }
-
-#contact-form input:focus,
-#contact-form select:focus,
-#contact-form textarea:focus {
-  outline: none;
-  border-color: var(--sky-500);
-}
-
-#contact-form .option-row { display: flex; gap: 1rem; flex-wrap: wrap; }
-#contact-form .option-row label { display: flex; align-items: center; gap: 0.4rem; font-weight: 500; }
-
-
-.event-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  padding: 1.1rem 1.3rem;
-  background: var(--white);
-  border: 1px solid var(--sky-100);
-  border-radius: 12px;
-  margin-bottom: 0.9rem;
-}
-
-.event-row .title { font-weight: 700; }
-.event-row .meta { font-size: 0.88rem; color: #5C7385; }
-
-
-#site-footer {
-  background: var(--sky-700);
-  color: var(--white);
-  padding-block: 2rem;
-}
-
-#site-footer .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1.4rem;
-}
-
-#site-footer h3 { color: var(--white); font-size: 1rem; }
-#site-footer p { font-size: 0.85rem; opacity: 0.85; margin-top: 0.3rem; }
-#site-footer .credit-comment { font-size: 0.72rem; opacity: 0.6; margin-top: 0.7rem; }
-
-#site-footer .nav-menu { list-style: none; display: flex; gap: 0.8rem; flex-wrap: wrap; }
-#site-footer .nav-menu a { color: var(--white); font-weight: 500; padding: 0; }
-#site-footer .nav-menu a:hover { color: var(--sky-100); background: none; }
-
-.flex-cards {
-  display: flex;
-  gap: 1.4rem;
-  flex-wrap: wrap;
-}
-
-.flex-cards .fc-card {
-  flex: 1 1 260px;
-  display: flex;
-  flex-direction: column;
-  background: var(--white);
-  border: 1px solid var(--sky-100);
-  border-radius: 14px;
-  overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.flex-cards .fc-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 28px rgba(46, 124, 174, 0.18);
-}
-
-.flex-cards .fc-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-
-.flex-cards .fc-body {
-  padding: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.flex-cards .fc-body p { flex: 1; font-size: 0.92rem; }
-.flex-cards .fc-body .btn { margin-top: 1rem; align-self: flex-start; }
-
-.step-row {
-  display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-}
-
-.step-row li {
-  flex: 1 1 200px;
-  background: var(--white);
-  border: 1px solid var(--sky-100);
-  border-radius: 12px;
-  padding: 1.1rem 1.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.step-row .step-num {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--sky-500);
-  color: var(--white);
-  font-weight: 700;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.page-grid {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  grid-template-rows: auto auto auto;
-  grid-template-areas:
-    "gheader gheader"
-    "gsidebar gmain"
-    "gfooter  gfooter";
-  gap: 1.2rem;
-}
-
-.page-grid .g-header { grid-area: gheader; }
-.page-grid .g-sidebar { grid-area: gsidebar; }
-.page-grid .g-main { grid-area: gmain; }
-.page-grid .g-footer { grid-area: gfooter; }
-
-.page-grid .g-header,
-.page-grid .g-footer {
-  background: var(--sky-500);
-  color: var(--white);
-  border-radius: 12px;
-  padding: 1rem 1.3rem;
-}
-
-.page-grid .g-header h3,
-.page-grid .g-footer p { color: var(--white); }
-
-.page-grid .g-sidebar {
-  background: var(--sky-50);
-  border: 1px solid var(--sky-100);
-  border-radius: 12px;
-  padding: 1.2rem;
-}
-
-.page-grid .g-sidebar h3 { font-size: 0.95rem; color: var(--sky-700); }
-.page-grid .g-sidebar ul { list-style: none; padding: 0; }
-.page-grid .g-sidebar li { padding: 0.4rem 0; border-bottom: 1px solid var(--sky-100); font-size: 0.9rem; }
-
-.page-grid .g-main {
-  background: var(--white);
-  border: 1px solid var(--sky-100);
-  border-radius: 12px;
-  padding: 1.2rem 1.4rem;
-}
-
-@media (max-width: 700px) {
-  .page-grid {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "gheader"
-      "gsidebar"
-      "gmain"
-      "gfooter";
-  }
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.9rem;
-}
-
-@media (max-width: 700px) {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-.gallery-item {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.35s ease;
-}
-
-.gallery-item:hover img { transform: scale(1.08); }
-
-.gallery-item .caption {
-  position: absolute;
-  inset: 0;
-  background: rgba(27, 42, 56, 0.72);
-  color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0.8rem;
-  font-weight: 600;
-  font-size: 0.9rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .caption { opacity: 1; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEAMO — Home</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header id="main-header">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <span>TEAMO</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="join.html">Join Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img class="hero-photo" src="images/homepage.jpg" alt="Football players in motion under stadium floodlights">
+      <div class="hero-content">
+        <h1>TEAMO</h1>
+        <p>We organize grassroots football across the city — leagues, tournaments, and pop-up matches for anyone who wants to play.</p>
+        <a class="btn outline" href="events.html">See upcoming events</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="grid cols-3">
+          <div class="card" style="text-align:center;">
+            <h3>120+</h3>
+            <p>Matches organized last year</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <h3>40+</h3>
+            <p>Registered teams and clubs</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <h3>6</h3>
+            <p>Venues across the city</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tint">
+      <div class="container">
+        <h2>What we do</h2>
+        <ul class="feature-list">
+          <li>Run weekly five-a-side and seven-a-side leagues, open to any team</li>
+          <li>Organize weekend tournaments and cup competitions</li>
+          <li>Book the pitch, referees, and equipment - teams just show up and play</li>
+          <li>Host charity matches and community events throughout the season</li>
+        </ul>
+      </div>
+    </section>
+
+  
+    <section>
+      <div class="container">
+        <h2>Ways to play</h2>
+        <div class="flex-cards">
+          <div class="fc-card">
+            <img src="images/Players.jpg" alt="Players">
+            <div class="fc-body">
+              <h3>Join a league</h3>
+              <p>Weekly five-a-side and seven-a-side matches, organized by division so games stay competitive and fun.</p>
+              <a class="btn primary" href="join.html">Register</a>
+            </div>
+          </div>
+          <div class="fc-card">
+            <img src="images/weekend tournament.jpg" alt="weekend tournament">
+            <div class="fc-body">
+              <h3>Enter a tournament</h3>
+              <p>One-day and weekend cups across the city — bring a full squad or join a mixed team on the day.</p>
+              <a class="btn primary" href="events.html">See events</a>
+            </div>
+          </div>
+          <div class="fc-card">
+            <img src="images/Solo player.jpg" alt="Solo player">
+            <div class="fc-body">
+              <h3>Play solo</h3>
+              <p>No team? No problem. Join our pick-up games and we'll place you with a squad that needs a player.</p>
+              <a class="btn primary" href="join.html">Join us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer">
+    <div class="container">
+      <div>
+        <h3>TEAMO</h3>
+        <p>This page was built by Beka</p>
+        <p class="credit-comment">Assignment #2</p>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="join.html">Join Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
