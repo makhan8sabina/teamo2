@@ -97,4 +97,9 @@ p  { line-height: 1.6; }
   --bs-navbar-hover-color: #D6EDF9;
   --bs-navbar-active-color: #FFFFFF;
 }
+.card-img-top {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
 .navbar-dark .nav-link.active { text-decoration: underline; text-underline-offset: 6px; }
