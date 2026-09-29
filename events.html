@@ -4,157 +4,249 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TEAMO — Events</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/custom.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-  <header id="main-header">
+  <a class="visually-hidden-focusable position-absolute top-0 start-0 bg-white p-2 m-2 z-3" href="#main">Skip to main content</a>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" aria-label="Main navigation">
     <div class="container">
-      <a class="brand" href="index.html">
-        <span>TEAMO</span>
-      </a>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="events.html" class="active">Events</a></li>
-          <li><a href="join.html">Join Us</a></li>
+      <a class="navbar-brand fw-bold" href="index.html">TEAMO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="join.html">Join Us</a></li>
         </ul>
-      </nav>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <main>
-    <section class="hero">
+  <main id="main">
+    <section class="position-relative text-white">
       <img class="hero-photo" src="images/hero-events.jpg" alt="Football players sprinting on the pitch">
-      <div class="hero-content">
-        <h1>Events</h1>
-        <p>Leagues, cups, and pop-up tournaments — here's what's coming up.</p>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <h2>Upcoming events</h2>
-
-        <div class="event-row">
-          <span class="title">Summer Five-a-Side Cup</span>
-          <span class="meta">June 14 &middot; ASTANA IT UNIVERSITY</span>
-        </div>
-
-        <div class="event-row">
-          <span class="title">Midweek League — Week 6</span>
-          <span class="meta">June 18, 19:00 &middot; BARYS ARENA</span>
-        </div>
-
-        <div class="event-row">
-          <span class="title">Charity Shield Match</span>
-          <span class="meta">June 27 &middot; BOTANICAL GARDEN</span>
-        </div>
-
-        <div class="event-row">
-          <span class="title">Youth Development Camp</span>
-          <span class="meta">July 5–7 &middot; NAZARBAYEV UNIVERSITY</span>
+      <div class="position-absolute top-0 bottom-0 start-0 end-0 d-flex align-items-center justify-content-center text-center p-3">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 px-3 px-sm-2">
+              <h1 class="fw-bold mb-3">Events</h1>
+              <p class="mx-auto mb-3 mb-lg-4">Leagues, cups, and pop-up tournaments — here's what's coming up.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="tint">
+    <section class="py-4 py-lg-5">
       <div class="container">
-        <h2>Full schedule</h2>
-        <div class="table-wrap">
-          <table>
-            <caption>This season's events</caption>
-            <thead>
-              <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Event</th>
-                <th scope="col">Place</th>
-                <th scope="col">Format</th>
-              </tr>
+        <h2 class="mb-3 mb-lg-4">Upcoming events</h2>
+        <div class="card-group">
+          <article class="card">
+            <img src="images/gallery-1.jpg" class="card-img-top" alt="Summer Five-a-Side Cup action">
+            <div class="card-body px-3 px-sm-2 py-3">
+              <h3 class="card-title h5">Summer Five-a-Side Cup</h3>
+              <p class="card-text text-body-secondary mb-2">June 14 &middot; ASTANA IT UNIVERSITY</p>
+              <p class="card-text">A one-day 5-a-side cup for teams of any level. Bring your squad or join a mixed team on the day.</p>
+            </div>
+            <div class="card-footer bg-white p-3"><a class="btn btn-primary btn-sm" href="join.html">Register interest</a></div>
+          </article>
+          <article class="card">
+            <img src="images/gallery-2.jpg" class="card-img-top" alt="Midweek league match">
+            <div class="card-body px-3 px-sm-2 py-3">
+              <h3 class="card-title h5">Midweek League — Week 6</h3>
+              <p class="card-text text-body-secondary mb-2">June 18, 19:00 &middot; BARYS ARENA</p>
+              <p class="card-text">Our weekly 7-a-side league continues with another round of evening fixtures.</p>
+            </div>
+            <div class="card-footer bg-white p-3"><a class="btn btn-primary btn-sm" href="join.html">Register interest</a></div>
+          </article>
+          <article class="card">
+            <img src="images/gallery-3.jpg" class="card-img-top" alt="Charity Shield Match">
+            <div class="card-body px-3 px-sm-2 py-3">
+              <h3 class="card-title h5">Charity Shield Match</h3>
+              <p class="card-text text-body-secondary mb-2">June 27 &middot; BOTANICAL GARDEN</p>
+              <p class="card-text">A friendly 11-a-side match to raise money for local youth football.</p>
+            </div>
+            <div class="card-footer bg-white p-3"><a class="btn btn-primary btn-sm" href="join.html">Register interest</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-tint py-4 py-lg-5">
+      <div class="container">
+        <h2 class="mb-3">Full schedule</h2>
+        <div class="btn-group flex-wrap mb-3" role="group" aria-label="Filter events by format">
+          <button type="button" class="btn btn-outline-primary btn-sm active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="btn btn-outline-primary btn-sm" data-filter="5-a-side" aria-pressed="false">5-a-side</button>
+          <button type="button" class="btn btn-outline-primary btn-sm" data-filter="7-a-side" aria-pressed="false">7-a-side</button>
+          <button type="button" class="btn btn-outline-primary btn-sm" data-filter="11-a-side" aria-pressed="false">11-a-side</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover align-middle bg-white" id="schedule">
+            <caption class="caption-top">This season's events</caption>
+            <thead class="table-primary">
+              <tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Place</th><th scope="col">Format</th></tr>
             </thead>
             <tbody>
-              <tr><td>June 14</td><td>Summer Five-a-Side Cup</td><td>ASTANA IT UNIVERSITY</td><td>5-a-side</td></tr>
-              <tr><td>June 18</td><td>Midweek League — Week 6</td><td>BARYS ARENA</td><td>7-a-side</td></tr>
-              <tr><td>June 27</td><td>Charity Shield Match</td><td>BOTANICAL GARDEN</td><td>11-a-side</td></tr>
-              <tr><td>July 5–7</td><td>Youth Development Camp</td><td>NAZARBAYEV UNIVERSITY</td><td>5-a-side</td></tr>
-              <tr><td>July 19</td><td>Summer League Final</td><td>ASTANA ARENA</td><td>7-a-side</td></tr>
+              <tr data-format="5-a-side"><td>June 14</td><td>Summer Five-a-Side Cup</td><td>ASTANA IT UNIVERSITY</td><td>5-a-side</td></tr>
+              <tr data-format="7-a-side"><td>June 18</td><td>Midweek League — Week 6</td><td>BARYS ARENA</td><td>7-a-side</td></tr>
+              <tr data-format="11-a-side"><td>June 27</td><td>Charity Shield Match</td><td>BOTANICAL GARDEN</td><td>11-a-side</td></tr>
+              <tr data-format="5-a-side"><td>July 5–7</td><td>Youth Development Camp</td><td>NAZARBAYEV UNIVERSITY</td><td>5-a-side</td></tr>
+              <tr data-format="7-a-side"><td>July 19</td><td>Summer League Final</td><td>ASTANA ARENA</td><td>7-a-side</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h2 style="margin-top:2.4rem;">Did you know?</h2>
-        <ul class="feature-list">
-          <li>The first official rules of football were written in 1863 by England's Football Association</li>
-          <li>A standard match runs 90 minutes, split into two 45-minute halves</li>
-          <li>The offside rule was introduced to stop players camping out near the opponent's goal</li>
-          <li>The World Cup is held every four years and is the most-watched sporting event in the world</li>
+        <h2 class="mt-4 mt-lg-5 mb-3">Did you know?</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-transparent">The first official rules of football were written in 1863 by England's Football Association</li>
+          <li class="list-group-item bg-transparent">A standard match runs 90 minutes, split into two 45-minute halves</li>
+          <li class="list-group-item bg-transparent">The offside rule was introduced to stop players camping out near the opponent's goal</li>
+          <li class="list-group-item bg-transparent">The World Cup is held every four years and is the most-watched sporting event in the world</li>
         </ul>
       </div>
     </section>
 
-    <section>
+    <section class="py-4 py-lg-5">
       <div class="container">
-        <h2>Gallery</h2>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="images/gallery-1.jpg" alt="Summer Five-a-Side Cup action">
-            <div class="caption">Summer Five-a-Side Cup</div>
-          </div>
-          <div class="gallery-item">
-            <img src="images/gallery-2.jpg" alt="Midweek league match">
-            <div class="caption">Midweek League</div>
-          </div>
-          <div class="gallery-item">
-            <img src="images/gallery-3.jpg" alt="Charity Shield Match">
-            <div class="caption">Charity Shield Match</div>
-          </div>
-          <div class="gallery-item">
-            <img src="images/gallery-4.jpg" alt="Youth Development Camp">
-            <div class="caption">Youth Development Camp</div>
-          </div>
-          <div class="gallery-item">
-            <img src="images/gallery-5.jpg" alt="Players celebrating a goal">
-            <div class="caption">Match day</div>
-          </div>
-          <div class="gallery-item">
-            <img src="images/gallery-6.jpg" alt="Team huddle before kickoff">
-            <div class="caption">Before kickoff</div>
-          </div>
-          <div class="gallery-item">
-            <img src="images/gallery-7.jpg" alt="Referee and players on the pitch">
-            <div class="caption">On the pitch</div>
-          </div>
-          <div class="gallery-item">
-            <img src="images/gallery-8.jpg" alt="Fans watching from the sideline">
-            <div class="caption">Sideline crowd</div>
-          </div>
-          <div class="gallery-item">
-            <img src="images/gallery-9.jpg" alt="Trophy presentation">
-            <div class="caption">Summer League Final</div>
+        <h2 class="mb-3 mb-lg-4 text-center">Gallery</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div id="galleryCarousel" class="carousel slide" aria-label="Photo gallery">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
+              </div>
+              <div class="carousel-inner rounded">
+                <div class="carousel-item active">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="images/gallery-1.jpg" alt="Summer Five-a-Side Cup action">
+                  </div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="bg-dark bg-opacity-75 rounded d-inline-block px-3 py-1 mb-0">Summer Five-a-Side Cup</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="images/gallery-2.jpg" alt="Midweek league match">
+                  </div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="bg-dark bg-opacity-75 rounded d-inline-block px-3 py-1 mb-0">Midweek League</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="images/gallery-3.jpg" alt="Charity Shield Match">
+                  </div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="bg-dark bg-opacity-75 rounded d-inline-block px-3 py-1 mb-0">Charity Shield Match</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="images/gallery-4.jpg" alt="Youth Development Camp">
+                  </div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="bg-dark bg-opacity-75 rounded d-inline-block px-3 py-1 mb-0">Youth Development Camp</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="images/gallery-5.jpg" alt="Players celebrating a goal">
+                  </div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="bg-dark bg-opacity-75 rounded d-inline-block px-3 py-1 mb-0">Match day</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="images/gallery-6.jpg" alt="Team huddle before kickoff">
+                  </div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="bg-dark bg-opacity-75 rounded d-inline-block px-3 py-1 mb-0">Before kickoff</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="images/gallery-7.jpg" alt="Referee and players on the pitch">
+                  </div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="bg-dark bg-opacity-75 rounded d-inline-block px-3 py-1 mb-0">On the pitch</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="images/gallery-8.jpg" alt="Fans watching from the sideline">
+                  </div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="bg-dark bg-opacity-75 rounded d-inline-block px-3 py-1 mb-0">Sideline crowd</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="images/gallery-9.jpg" alt="Trophy presentation">
+                  </div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="bg-dark bg-opacity-75 rounded d-inline-block px-3 py-1 mb-0">Summer League Final</p>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer id="site-footer">
-    <div class="container">
-      <div>
-        <h3>TEAMO</h3>
-        <p>This page was built by Sabina</p>
-        <p class="credit-comment">Assignment #2</p>
+  <footer class="bg-primary text-white py-4 mt-auto">
+    <div class="container px-3 px-sm-2">
+      <div class="row gy-3 align-items-center">
+        <div class="col-md-7">
+          <h2 class="h6 fw-bold mb-2">TEAMO</h2>
+          <p class="mb-1">Site built by: Bekmukhammed Akhatbek (Home, About) &amp; Sabina Makhan (Events, Join Us)</p>
+          <p class="small mb-0">Assignment #3 — Media Queries + Bootstrap Grid</p>
+        </div>
+        <nav class="col-md-5" aria-label="Footer navigation">
+          <ul class="nav justify-content-md-end"><li class="nav-item"><a class="nav-link text-white px-2" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link text-white px-2" href="about.html">About</a></li><li class="nav-item"><a class="nav-link text-white px-2" href="events.html">Events</a></li><li class="nav-item"><a class="nav-link text-white px-2" href="join.html">Join Us</a></li></ul>
+        </nav>
       </div>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="join.html">Join Us</a></li>
-        </ul>
-      </nav>
     </div>
   </footer>
 
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const filterBtns = document.querySelectorAll('[data-filter]');
+    const rows = document.querySelectorAll('#schedule tbody tr');
+    filterBtns.forEach(btn => btn.addEventListener('click', () => {
+      filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+      const f = btn.dataset.filter;
+      rows.forEach(r => r.classList.toggle('d-none', f !== 'all' && r.dataset.format !== f));
+    }));
+  </script>
 </body>
 </html>
