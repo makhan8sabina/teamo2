@@ -325,23 +325,20 @@ document.addEventListener("DOMContentLoaded", function () {
       if (cardPosEl) cardPosEl.textContent = pos || "MID";
     }
 
-    if (pcForm && numInput && posSelect) {
-      const savedCard = getPlayerCard();
-      numInput.value = savedCard.number;
-      posSelect.value = savedCard.position;
-      updateCardPreview(savedCard.number, savedCard.position);
-
-      numInput.addEventListener("input", function () {
-        updateCardPreview(numInput.value, posSelect.value);
-      });
-
-      posSelect.addEventListener("change", function () {
-        updateCardPreview(numInput.value, posSelect.value);
-      });
-
-      pcForm.addEventListener("submit", function (e) {
+    pcForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        const finalNum = numInput.value.trim() || "10";
+        clearError("pc-number");
+
+        const raw = numInput.value.trim();
+        const parsed = Number(raw);
+
+        if (!raw || !/^\d{1,2}$/.test(raw) || parsed < 1 || parsed > 99) {
+          showError("pc-number", "Enter a kit number between 1 and 99.");
+          toast("Kit number must be between 1 and 99.", "error");
+          return;
+        }
+
+        const finalNum = String(parsed);
         numInput.value = finalNum;
         setPlayerCard({
           number: finalNum,
@@ -350,7 +347,6 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCardPreview(finalNum, posSelect.value);
         toast("Player card updated!", "success");
       });
-    }
 
     function renderSavedEvents() {
       const listEl = document.getElementById("profile-saved-events");

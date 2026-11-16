@@ -49,26 +49,24 @@ subscribeBtn.addEventListener("click", function () {
     const email = document.getElementById("sub-email").value;
     let hasErrors = false;
 
-    if (name.trim()===""){
+    if (name.trim() === "") {
       showError("sub-name", "Please enter your name.");
-        hasErrors = true;
+      hasErrors = true;
     }
 
-    if (isEmailValid(email)===false){
+    if (!Validators.email(email.trim())) {
       showError("sub-email", "Enter a valid email, e.g. name@example.com.");
-        hasErrors = true;
+      hasErrors = true;
     }
 
-    if(hasErrors===false){
-        // spinner + "Please wait..." while the request is "sent"
+    if (!hasErrors) {
         TeamoUI.setLoading($(subscribeBtn), true);
 
-        setTimeout(function(){
+        setTimeout(function () {
             TeamoUI.setLoading($(subscribeBtn), false);
-            subscribeMessage.textContent = "Thank you, " + name + "! You are subscribed.";
+            subscribeMessage.textContent = "Thank you, " + name.trim() + "! You are subscribed.";
             document.getElementById("sub-name").value = "";
             document.getElementById("sub-email").value = "";
-            playWhistle();
             popAnimation(subscribeMessage);
             TeamoUI.toast("Subscribed successfully!", "success");
         }, 1200);

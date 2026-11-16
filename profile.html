@@ -82,24 +82,25 @@
                   </div>
                 </div>
 
-                <form id="player-card-form" class="row g-2 mb-4">
-                  <div class="col-4 col-sm-3">
-                    <label for="pc-number" class="form-label small mb-1">Number</label>
-                    <input type="number" id="pc-number" class="form-control form-control-sm" min="1" max="99" placeholder="10">
-                  </div>
-                  <div class="col-8 col-sm-5">
-                    <label for="pc-position" class="form-label small mb-1">Position</label>
-                    <select id="pc-position" class="form-select form-select-sm">
-                      <option value="GK">Goalkeeper (GK)</option>
-                      <option value="DEF">Defender (DEF)</option>
-                      <option value="MID" selected>Midfielder (MID)</option>
-                      <option value="FWD">Forward (FWD)</option>
-                    </select>
-                  </div>
-                  <div class="col-12 col-sm-4 d-flex align-items-end">
-                    <button type="submit" class="btn btn-outline-primary btn-sm w-100">Save card</button>
-                  </div>
-                </form>
+                <form id="player-card-form" class="row g-3" novalidate>
+                <div class="col-sm-6">
+                  <label for="pc-number" class="form-label small fw-semibold">Kit Number (1–99)</label>
+                  <input type="text" inputmode="numeric" id="pc-number" class="form-control" value="10" placeholder="10">
+                  <small id="pc-number-error" class="error-message text-danger d-block mt-1"></small>
+                </div>
+                <div class="col-sm-6">
+                  <label for="pc-position" class="form-label small fw-semibold">Position</label>
+                  <select id="pc-position" class="form-select">
+                    <option value="GK">GK — Goalkeeper</option>
+                    <option value="DEF">DEF — Defender</option>
+                    <option value="MID" selected>MID — Midfielder</option>
+                    <option value="FWD">FWD — Forward</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary btn-sm">Update Card</button>
+                </div>
+              </form>
 
                 <h3 class="h5 mb-2">Saved events</h3>
                 <ul class="list-group mb-4" id="profile-saved-events">
