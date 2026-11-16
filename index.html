@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TEAMO — Home</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -25,6 +25,7 @@
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
           <li class="nav-item"><a class="nav-link" href="join.html">Join Us</a></li>
+          <li class="nav-item"><a class="nav-link" id="auth-link" href="login.html">Log In</a></li>
         </ul>
         <button id="theme-toggle" class="btn btn-sm btn-outline-light ms-lg-3 my-2 my-lg-0 me-auto me-lg-0 custom-theme-btn">
         🌙 Dark
@@ -44,22 +45,6 @@
               <p class="mx-auto mb-3 mb-lg-4">We organize grassroots football across the city — leagues, tournaments, and pop-up matches for anyone who wants to play.</p>
               <a class="btn btn-outline-light btn-lg" href="events.html">See upcoming events</a>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-        <section class="py-3 bg-body-tertiary border-bottom">
-          <div class="container">
-             <div class="row align-items-center g-3">
-            <div class="col-md-7">
-            <p class="fw-semibold text-primary mb-1" id="greeting"></p>
-            <p class="mb-0"><span class="fw-semibold">Local date and time:</span>
-              <time id="datetime">Loading...</time></p>
-          </div>
-          <div class="col-md-5 text-md-end">
-            <button type="button" id="colorBtn" class="btn btn-outline-primary btn-sm">Change background color</button>
-            <span class="small ms-2" id="colorName">White</span>
           </div>
         </div>
       </div>
@@ -115,7 +100,7 @@
         <h2 class="mb-3 mb-lg-4">Ways to play</h2>
         <div class="mq-cards">
           <article class="mq-card">
-            <img src="images/lazy-placeholder.svg" data-src="images/Players.jpg" alt="Players in a league match">
+            <img src="images/lazy-placeholder.svg" data-src="images/players.jpg" alt="Players in a league match">
             <div class="mq-card-body p-3 p-lg-4">
               <h3>Join a league</h3>
               <p>Weekly five-a-side and seven-a-side matches, organized by division so games stay competitive and fun.</p>
@@ -123,7 +108,7 @@
             </div>
           </article>
           <article class="mq-card">
-            <img src="images/lazy-placeholder.svg" data-src="images/weekend tournament.jpg" alt="Weekend tournament">
+            <img src="images/lazy-placeholder.svg" data-src="images/weekend-tournament.jpg" alt="Weekend tournament">
             <div class="mq-card-body p-3 p-lg-4">
               <h3>Enter a tournament</h3>
               <p>One-day and weekend cups across the city — bring a full squad or join a mixed team on the day.</p>
@@ -131,7 +116,7 @@
             </div>
           </article>
           <article class="mq-card">
-            <img src="images/lazy-placeholder.svg" data-src="images/Solo player.jpg" alt="Solo player">
+            <img src="images/lazy-placeholder.svg" data-src="images/solo-player.jpg" alt="Solo player">
             <div class="mq-card-body p-3 p-lg-4">
               <h3>Play solo</h3>
               <p>No team? No problem. Join our pick-up games and we'll place you with a squad that needs a player.</p>
@@ -148,20 +133,25 @@
       <div class="row gy-3 align-items-center">
         <div class="col-md-7">
           <h2 class="h6 fw-bold mb-2">TEAMO</h2>
-          <p class="mb-1">Site built by: Bekmukhammed Akhatbek (Home, About) &amp; Sabina Makhan (Events, Join Us)</p>
-          <p class="small mb-0">Assignment #3 — Media Queries + Bootstrap Grid</p>
+          <p class="mb-1">Site built by: Bekmukhammed Akhatbek (Home, About) &amp; Sabina Makhan (Events, Join Us, Profile)</p>
         </div>
         <nav class="col-md-5" aria-label="Footer navigation">
-          <ul class="nav justify-content-md-end"><li class="nav-item"><a class="nav-link text-white px-2" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link text-white px-2" href="about.html">About</a></li><li class="nav-item"><a class="nav-link text-white px-2" href="events.html">Events</a></li><li class="nav-item"><a class="nav-link text-white px-2" href="join.html">Join Us</a></li></ul>
+          <ul class="nav justify-content-md-end">
+            <li class="nav-item"><a class="nav-link text-white px-2" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-white px-2" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link text-white px-2" href="events.html">Events</a></li>
+            <li class="nav-item"><a class="nav-link text-white px-2" href="join.html">Join Us</a></li>
+            <li class="nav-item"><a class="nav-link text-white px-2" href="login.html">Log In</a></li>
+          </ul>
         </nav>
       </div>
     </div>
   </footer>
 
   <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/background.js"></script>
-    <script src="js/datetime.js"></script>
-    <script src="js/nav.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/nav.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 </html>

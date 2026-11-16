@@ -1,7 +1,4 @@
-$(document).ready(function(){
-console.log("jQuery is ready!");
-});
-//7
+
 var TeamoUI = (function ($) {
   'use strict';
 
@@ -36,7 +33,7 @@ var TeamoUI = (function ($) {
     $t.find('.jq-toast-close').on('click', dismiss);
   }
 
-//6
+
   function setLoading($btn, loading) {
     if (loading) {
       if ($btn.data('orig-html') === undefined) {
@@ -63,9 +60,8 @@ var TeamoUI = (function ($) {
     return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
-//3
+
   function highlight($roots, q) {
-    // remove old highlights first
     $roots.find('mark.jq-hl').each(function () {
       $(this).replaceWith(document.createTextNode($(this).text()));
     });
@@ -93,7 +89,6 @@ var TeamoUI = (function ($) {
         found.push({ index: m.index, length: m[0].length });
         if (m[0].length === 0) re.lastIndex++;
       }
-      // go from the end so earlier indexes stay valid
       for (var k = found.length - 1; k >= 0; k--) {
         var mid = node.splitText(found[k].index);
         mid.splitText(found[k].length);
@@ -102,7 +97,6 @@ var TeamoUI = (function ($) {
     });
   }
 
-//1-2
   function initSearch(cfg) {
     var $input = $(cfg.input);
     if (!$input.length) return null;
@@ -111,14 +105,28 @@ var TeamoUI = (function ($) {
     var $count = $(cfg.count);
     var activeIdx = -1;
     var lastVal = null;
+    var storageKey = 'teamo_search_' + ($input.attr('id') || 'search');
+
+    function saveQuery(q) {
+      try {
+        if (q) localStorage.setItem(storageKey, q);
+        else localStorage.removeItem(storageKey);
+      } catch (err) {}
+    }
+
+    function savedQuery() {
+      try { return localStorage.getItem(storageKey) || ''; }
+      catch (err) { return ''; }
+    }
 
     function query() { return ($input.val()).trim(); }
 
- //1
+
     function apply() {
       var q = query();
       var ql = q.toLowerCase();
       var $items = cfg.items();
+      saveQuery(q);
 
       var $matched = $items.filter(function () {
         return !ql || $(this).text().toLowerCase().indexOf(ql) > -1;
@@ -138,7 +146,7 @@ var TeamoUI = (function ($) {
       }
     }
 
-//2
+   
     function hideSuggest() {
       $list.prop('hidden', true).empty();
       $input.attr('aria-expanded', 'false');
@@ -216,7 +224,6 @@ var TeamoUI = (function ($) {
       }
     });
 
-
     $list.on('mousedown', '.jq-suggest-item', function (e) {
       e.preventDefault();
       choose($(this).attr('data-value'));
@@ -228,9 +235,16 @@ var TeamoUI = (function ($) {
     $input.on('focus', function () { if (query()) renderSuggest(); });
     $input.on('blur', hideSuggest);
 
+    var saved = savedQuery();
+    if (saved) {
+      $input.val(saved);
+      lastVal = saved;
+      apply();
+      TeamoUI.toast('Showing your last search: “' + saved + '”', 'info', 2500);
+    }
+
     return { apply: apply };
   }
-
 
   function initEventSearch() {
     var api = initSearch({
@@ -242,7 +256,7 @@ var TeamoUI = (function ($) {
       targets: function ($row) { return $row.children('td'); },
       suggestions: function () {
         var seen = {}, out = [];
-        var list = (typeof events !== 'undefined') ? events : [];   // `events` comes from schedule.js
+        var list = (typeof events !== 'undefined') ? events : [];   
         $.each(list, function (_, ev) {
           $.each([ev.name, ev.place, ev.format], function (_, val) {
             if (val && !seen[val]) { seen[val] = true; out.push(val); }
@@ -260,7 +274,6 @@ var TeamoUI = (function ($) {
         }
       }
     });
-
 
     if (api) $('[data-filter]').on('click', api.apply);
   }
@@ -307,7 +320,7 @@ var TeamoUI = (function ($) {
     });
   }
 
-//4
+
   function initProgressBar() {
     $('<div id="jq-progress" role="progressbar" aria-label="Page scroll progress" ' +
       'aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>').appendTo('body');
@@ -319,7 +332,6 @@ var TeamoUI = (function ($) {
     $('#jq-progress').css('width', pct + '%').attr('aria-valuenow', Math.round(pct));
   }
 
-//5
   function formatNumber(n) { return n.toLocaleString('en-US'); }
 
   function startCounter($el) {
@@ -358,7 +370,7 @@ var TeamoUI = (function ($) {
     });
   }
 
-//8
+
   var ICON_COPY =
     '<svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">' +
     '<path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>' +
@@ -367,11 +379,11 @@ var TeamoUI = (function ($) {
     '<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">' +
     '<path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
+
   function copyText(text) {
     if (navigator.clipboard && window.isSecureContext) {
       return navigator.clipboard.writeText(text);
     }
-
     return new Promise(function (resolve, reject) {
       var $tmp = $('<textarea readonly></textarea>')
         .css({ position: 'fixed', top: 0, left: 0, opacity: 0 })
@@ -412,7 +424,7 @@ var TeamoUI = (function ($) {
     });
   }
 
-//9
+
   function initLazy() {
     $('img[data-src]').addClass('jq-lazy');
   }
@@ -420,7 +432,6 @@ var TeamoUI = (function ($) {
   function loadLazyImages() {
     $('img.jq-lazy').each(function () {
       var $img = $(this);
-      // images inside a carousel are hidden, so measure the carousel instead
       var $ref = $img.closest('.carousel');
       if (!$ref.length) $ref = $img;
 
@@ -434,7 +445,7 @@ var TeamoUI = (function ($) {
     });
   }
 
-//7
+
   function initSaveButtons() {
     $('.jq-save').on('click', function () {
       var $btn = $(this);
@@ -470,8 +481,6 @@ var TeamoUI = (function ($) {
   }
 
   $(document).ready(function () {
-    console.log("jQuery is ready!");
-
     initEventSearch();
     initFaqSearch();
     initProgressBar();

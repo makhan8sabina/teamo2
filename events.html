@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TEAMO — Events</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -25,6 +25,7 @@
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link active" aria-current="page" href="events.html">Events</a></li>
           <li class="nav-item"><a class="nav-link" href="join.html">Join Us</a></li>
+          <li class="nav-item"><a class="nav-link" id="auth-link" href="login.html">Log In</a></li>
         </ul>
         <button id="theme-toggle" class="btn btn-sm btn-outline-light ms-lg-3 my-2 my-lg-0 me-auto me-lg-0 custom-theme-btn">
         🌙 Dark
@@ -41,7 +42,6 @@
             <div class="col-lg-8 px-3 px-sm-2">
               <h1 class="fw-bold mb-3">Events</h1>
               <p class="mx-auto mb-3 mb-lg-4">Leagues, cups, and pop-up tournaments — here's what's coming up.</p>
-                            <button type="button" class="btn btn-outline-light btn-lg" id="openSubscribe">Subscribe to updates</button>
             </div>
           </div>
         </div>
@@ -225,6 +225,14 @@
         </div>
       </div>
     </section>
+    <section class="bg-tint py-4 py-lg-5">
+      <div class="container">
+      <h2 class="mb-1">Weather in Astana</h2>
+      <p class="text-body-secondary mb-3">Check the 7-day forecast before you head to the pitch (data: Open-Meteo).</p>
+      <div id="weather-status" aria-live="polite"></div>
+      <div id="weather-cards" class="row g-3"></div>
+      </div>
+    </section>
   </main>
 
   <footer class="bg-primary text-white py-4 mt-auto">
@@ -232,41 +240,33 @@
       <div class="row gy-3 align-items-center">
         <div class="col-md-7">
           <h2 class="h6 fw-bold mb-2">TEAMO</h2>
-          <p class="mb-1">Site built by: Bekmukhammed Akhatbek (Home, About) &amp; Sabina Makhan (Events, Join Us)</p>
-          <p class="small mb-0">Assignment #3 — Media Queries + Bootstrap Grid</p>
+          <p class="mb-1">Site built by: Bekmukhammed Akhatbek (Home, About) &amp; Sabina Makhan (Events, Join Us, Profile)</p>
         </div>
         <nav class="col-md-5" aria-label="Footer navigation">
-          <ul class="nav justify-content-md-end"><li class="nav-item"><a class="nav-link text-white px-2" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link text-white px-2" href="about.html">About</a></li><li class="nav-item"><a class="nav-link text-white px-2" href="events.html">Events</a></li><li class="nav-item"><a class="nav-link text-white px-2" href="join.html">Join Us</a></li></ul>
+          <ul class="nav justify-content-md-end">
+            <li class="nav-item"><a class="nav-link text-white px-2" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-white px-2" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link text-white px-2" href="events.html">Events</a></li>
+            <li class="nav-item"><a class="nav-link text-white px-2" href="join.html">Join Us</a></li>
+            <li class="nav-item"><a class="nav-link text-white px-2" href="login.html">Log In</a></li>
+          </ul>        
         </nav>
       </div>
     </div>
   </footer>
 
-    <div id="popup-backdrop"></div>
-  <div id="popup-box" class="card shadow-lg p-3 p-lg-4">
-    <button type="button" id="closePopup" class="btn-close position-absolute top-0 end-0 m-3" aria-label="Close"></button>
-    <h2 class="h4 mb-2">Get event updates</h2>
-    <p class="mb-3">Leave your name and email and we will tell you when new tournaments open.</p>
-    <div class="mb-3">
-      <label for="sub-name" class="form-label">Name</label>
-      <input type="text" class="form-control" id="sub-name">
-      <div id="sub-name-error" class="text-danger small"></div>
-    </div>
-    <div class="mb-3">
-      <label for="sub-email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="sub-email" placeholder="you@example.com">
-      <div id="sub-email-error" class="text-danger small"></div>
-    </div>
-    <button type="button" id="subscribeBtn" class="btn btn-primary w-100">Subscribe</button>
-    <p id="subscribe-message" class="text-success fw-semibold mt-3 mb-0"></p>
-  </div>
+  <a class="btn btn-outline-light btn-lg" href="signup.html">Create an account</a>
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/helpers.js"></script>
+  <script src="js/validators.js"></script>
   <script src="js/popup.js"></script>
   <script src="js/schedule.js"></script>
+  <script src="js/auth.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/background.js"></script>
+  <script src="js/weather.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 </html>

@@ -5,10 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!registerBtn) return;
 
-  function isEmailValid(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
   function showError(fieldId, message) {
     const field = document.getElementById(fieldId);
     if (!field) return;
@@ -33,8 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function clearAllErrors() {
     clearError("full-name");
     clearError("email");
-    clearError("password");
-    clearError("confirm-password");
+    clearError("phone");
     clearError("message");
     if (statusText) statusText.textContent = "";
   }
@@ -45,8 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const fullName = document.getElementById("full-name") ? document.getElementById("full-name").value.trim() : "";
     const email = document.getElementById("email") ? document.getElementById("email").value.trim() : "";
-    const password = document.getElementById("password") ? document.getElementById("password").value : "";
-    const passwordRepeat = document.getElementById("confirm-password") ? document.getElementById("confirm-password").value : "";
+    const phone = document.getElementById("phone") ? document.getElementById("phone").value.trim() : "";
     const message = document.getElementById("message") ? document.getElementById("message").value.trim() : "";
 
     let hasErrors = false;
@@ -62,24 +56,16 @@ document.addEventListener("DOMContentLoaded", function () {
     if (email.length === 0) {
       showError("email", "Please enter your email address.");
       hasErrors = true;
-    } else if (!isEmailValid(email)) {
+    } else if (!Validators.email(email)) {
       showError("email", "Enter a valid email, e.g. name@example.com.");
       hasErrors = true;
     }
 
-    if (password.length === 0) {
-      showError("password", "Please create a password.");
+    if (phone.length === 0) {
+      showError("phone", "Please enter your phone number.");
       hasErrors = true;
-    } else if (password.length < 8) {
-      showError("password", "Password must be at least 8 characters long.");
-      hasErrors = true;
-    }
-
-    if (passwordRepeat.length === 0) {
-      showError("confirm-password", "Please repeat your password.");
-      hasErrors = true;
-    } else if (passwordRepeat !== password) {
-      showError("confirm-password", "Passwords do not match.");
+    } else if (!Validators.phone(phone)) {
+      showError("phone", "Use the format +7 700 123 45 67.");
       hasErrors = true;
     }
 
@@ -96,11 +82,10 @@ document.addEventListener("DOMContentLoaded", function () {
       statusText.textContent = "Please fix the highlighted fields and try again.";
       TeamoUI.toast("Please fix the highlighted fields.", "error");
     } else {
-
-      
       const player = {
         name: fullName,
         email: email,
+        phone: phone,
         reason: document.getElementById("reason").value,
         format: document.querySelector("input[name='format']:checked").value
       };
@@ -112,27 +97,24 @@ document.addEventListener("DOMContentLoaded", function () {
   function sendForm(data, callback) {
     statusText.style.color = "";
     statusText.textContent = "";
-    TeamoUI.setLoading($(registerBtn), true);   // spinner + "Please wait..." + disabled
+    TeamoUI.setLoading($(registerBtn), true);
 
     setTimeout(function () {
       callback(data);
     }, 1000);
   }
 
-
   function showSuccess(data) {
-    TeamoUI.setLoading($(registerBtn), false);  // back to normal
+    TeamoUI.setLoading($(registerBtn), false);
     TeamoUI.toast("Form submitted successfully!", "success");
     statusText.style.color = "green";
-    statusText.textContent = "Thank you, " + data.name + "! You are registered for " +
-      data.format + ". We will write to " + data.email + ".";
+    statusText.textContent = "Thank you, " + data.name + "! We received your request (" +
+      data.format + "). We will write to " + data.email + ".";
 
     clearInputs();
-    playWhistle();
     popAnimation(statusText);
   }
 
-  
   function clearInputs() {
     document.querySelectorAll("#contact-form .form-control").forEach(function (input) {
       input.value = "";

@@ -119,35 +119,6 @@ body { transition: background-color 0.4s ease; }
 }
 
 
-#popup-backdrop {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(11, 27, 51, 0.6);
-  z-index: 1050;
-  animation: fade-in 0.25s ease;
-}
-#popup-box {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(440px, 92vw);
-  max-height: 90vh;
-  overflow-y: auto;
-  z-index: 1060;
-  animation: fade-in 0.25s ease;
-}
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-
 #moreStory { display: none; }
 
 
@@ -506,4 +477,56 @@ body.dark-theme .jq-save.is-saved {
 }
 body.dark-theme .text-body-secondary {
   color: #a9b6c4 !important;
+}
+
+.btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease,
+              color 0.2s ease, border-color 0.2s ease;
+}
+.btn:hover:not(:disabled):not(.btn-close) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(46, 124, 174, 0.28);
+}
+.btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}
+.btn-group > .btn:hover:not(:disabled) {
+  transform: none;
+  box-shadow: none;
+}
+.custom-theme-btn:hover { transform: scale(1.06); }
+
+.card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.weather-card:hover,
+#profile-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(27, 42, 56, 0.18) !important;
+}
+.weather-icon { font-size: 2rem; line-height: 1; }
+
+.avatar-circle {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  background: #2E7CAE;
+}
+
+body.dark-theme .text-body-secondary { color: #a9b6c4 !important; }
+body.dark-theme main a:not(.btn) { color: #7fc4ee; }
+body.dark-theme .weather-card,
+body.dark-theme #profile-card { background-color: #1e1e1e !important; }
+body.dark-theme .alert-success { background-color: #1f3d2b; color: #d1f0dc; border-color: #2f6b47; }
+body.dark-theme .alert-danger { background-color: #4a1f24; color: #f6d4d7; border-color: #8a3a42; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .card { transition: none; }
+  .btn:hover:not(:disabled), .weather-card:hover, #profile-card:hover { transform: none; }
 }
